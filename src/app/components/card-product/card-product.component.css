@@ -5,6 +5,7 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
+    background-color: white;
     align-items: flex-end;
     border: 1px solid black;
     border-radius: 10px;
@@ -34,7 +35,8 @@
 
 #card-product h3 {
     align-self: flex-start;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: normal;
     margin-bottom: 16px;
 }
 
@@ -43,7 +45,8 @@
     padding: 12px 20px;
     background: #299E9B;
     color: #FFFFFF;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;

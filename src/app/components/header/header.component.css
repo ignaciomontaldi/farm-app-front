@@ -23,6 +23,10 @@ header #logo-container {
     flex: 1;
 }
 
+header #logo-container:hover {
+    cursor: pointer;
+}
+
 
 /* Vector 1 */
 header #logo-container #vector-1{
@@ -34,7 +38,6 @@ header #logo-container #vector-1{
     border: 5px solid #FF8787;
 }
 
-
 /* Vector 2 */
 header #logo-container #vector-2{
     position: absolute;
@@ -44,8 +47,16 @@ header #logo-container #vector-2{
     height: 42px;
     border: 5px solid #FF8787;
     transform: rotate(-90deg);
-
 }
+
+header #logo-container:hover #vector-1 {
+    border: 5px solid #ff6565;
+}
+
+header #logo-container:hover #vector-2 {
+    border: 5px solid #ff6565;
+}
+
 
 header #title-container {
     flex: 0.8;
@@ -57,23 +68,28 @@ header h1{
     font-weight: bold;
 }
 
-header nav #btn-container {
+header h1:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+header nav #links-container {
     display: flex;
     align-items: center;
 }
 
-header nav #btn-container button {
+header nav #links-container a {
     width: 160px;
     height: 40px;
-    padding: 8px 15px;
+    padding: 0 15px;
     text-align: center;
     align-items: center;
+    align-content: center;
     border-radius: 5px;
     border: none;
 }
 
-header nav #btn-container #login-btn {
-    margin-right: 30px;
+header nav #links-container #login {
     background: #299E9B;
     color: #FFFFFF;
     font-size: 16px;
@@ -82,8 +98,8 @@ header nav #btn-container #login-btn {
     font-weight: 600;
 }
 
-header nav #btn-container #register-btn {
-    margin-left: 30px;
+header nav #links-container #register {
+    margin-left: 10px;
     background: #333333;
     color: #FFFFFF;
     font-size: 16px;
@@ -92,17 +108,4 @@ header nav #btn-container #register-btn {
     font-weight: 600;
 }
 
-/* Iniciar Sesión */
-
-/* position: absolute;
-width: 129px;
-height: 27px;
-
-font-family: 'Open Sans';
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-line-height: 27px;
-
-color: #FFFFFF; */
 

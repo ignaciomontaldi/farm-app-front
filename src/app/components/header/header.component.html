@@ -1,23 +1,23 @@
 <header>
     <nav>
-        <span>
+        <span [routerLink]="['/']">
             <div id="logo-container">
                 <span id="vector-1"></span>
                 <span id="vector-2"></span>
             </div>
         </span>
-        <span id="title-container">
+        <span id="title-container" [routerLink]="['/']">
             <div>
                 <h1>Farm App</h1>
             </div>
         </span>
-        <span id="btn-container">
-            <button id="login-btn">
+        <span id="links-container">
+            <a id="login" [routerLink]="['/login']">
                 Iniciar Sesion
-            </button>
-            <button id="register-btn">
+            </a>
+            <a id="register" [routerLink]="['/register']">
                 Registrarse
-            </button>
+            </a>
         </span>
     </nav>
 </header>

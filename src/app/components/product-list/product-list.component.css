@@ -1,3 +1,21 @@
 #product-list {
+    width: 80vw;
+    margin: 10px auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#product-list #search-bar-container {
+    margin: 32px 0;
+    text-align: center;
+}
+
+#product-list #cards-container {
     width: 70%;
+    margin: 0 auto;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: auto auto;
+    row-gap: 36px;
 }

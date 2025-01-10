@@ -1,0 +1,109 @@
+header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    padding: 0.75rem 1.625rem;
+    background: #84E5FE;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Rectangle 8 */
+header #logo-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 300px;
+}
+
+
+/* Vector 1 */
+header #logo-container #vector-1{
+    position: absolute;
+    left: 20px;
+    top: 4.5px;
+    width: 0px;
+    height: 42px;
+    border: 5px solid #FF8787;
+}
+
+
+/* Vector 2 */
+header #logo-container #vector-2{
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    width: 0px;
+    height: 42px;
+    border: 5px solid #FF8787;
+    transform: rotate(-90deg);
+
+}
+
+header #title-container {
+    position: relative;
+    right: 20%;
+}
+
+header h1{
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+header nav #btn-container {
+    display: flex;
+    align-items: center;
+}
+
+header nav #btn-container button {
+    width: 160px;
+    height: 40px;
+    padding: 8px 15px;
+    text-align: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+}
+
+header nav #btn-container #login-btn {
+    margin-right: 30px;
+    background: #299E9B;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 27px;
+    font-weight: 600;
+}
+
+header nav #btn-container #register-btn {
+    margin-left: 30px;
+    background: #333333;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 27px;
+    font-weight: 600;
+}
+
+/* Iniciar Sesión */
+
+/* position: absolute;
+width: 129px;
+height: 27px;
+
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 27px;
+
+color: #FFFFFF; */
+

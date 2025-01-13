@@ -1,0 +1,19 @@
+<main id="product-detail-container">
+    <app-side-bar/>
+    <section id="product-detail">
+        <div id="product-detail-content">
+            <picture>
+                <img src="/prueba.jpg" alt="product-name">
+            </picture>
+            <div id="product-detail-info">
+                <h2>Product Name</h2>
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. At vitae possimus deserunt est mollitia fuga sequi a ullam ex esse ut autem pariatur, doloribus fugit eligendi, accusamus laboriosam odio necessitatibus.</h3>
+                <h4>Price: $100.00</h4>
+            </div>
+        </div>
+        <div id="product-detail-buttons">
+            <a [routerLink]="['/']"> Regresar a la lista de productos</a>
+            <button type="button">Agregar</button>
+        </div>
+    </section>
+</main>

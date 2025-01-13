@@ -82,6 +82,7 @@ header nav #links-container a {
     width: 160px;
     height: 40px;
     padding: 0 15px;
+    text-decoration: none;
     text-align: center;
     align-items: center;
     align-content: center;

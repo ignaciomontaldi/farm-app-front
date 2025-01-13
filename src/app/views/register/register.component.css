@@ -32,7 +32,7 @@
     height: 50px;
     max-width: 400px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 18px;
     border: 2px solid #A8CAF6;
 }
@@ -60,4 +60,8 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#register form button:hover {
+    background-color: #1D7E7A;
 }

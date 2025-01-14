@@ -1,12 +1,11 @@
 <section id="login">
     <h1>Ingresa tus datos</h1>
-    <form action="">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Contraseña">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input type="email" placeholder="Email" formControlName="email">
+        <input type="password" placeholder="Contraseña" formControlName="password">
         <a href="#">¿Olvidaste tu contraseña?</a>
         <div id="btn-container">
-            <button type="button" id="login-btn">Ingresar</button>
-            <a [routerLink]="['/register']" type="button" id="create-acc-btn">Crear Cuenta</a>       
+            <button type="submit" id="login-btn">Ingresar</button>     
         </div>
     </form>
 </section>

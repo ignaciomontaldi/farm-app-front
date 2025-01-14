@@ -11,13 +11,21 @@
                 <h1>Farm App</h1>
             </div>
         </span>
-        <span id="links-container">
-            <a id="login" [routerLink]="['/login']">
-                Iniciar Sesion
-            </a>
-            <a id="register" [routerLink]="['/register']">
-                Registrarse
-            </a>
-        </span>
+        <ng-container *ngIf="(userLogged)">
+            <span id="links-container">
+                <a [routerLink]="['/profile']">Mi perfil</a>
+                <a [routerLink]="['/cart']">Carrito</a>
+            </span>
+        </ng-container>
+        <ng-container *ngIf="!(userLogged)">
+            <span id="links-container">
+                <a id="login" [routerLink]="['/login']" *ngIf="!(currentRoute === '/login')">
+                    Iniciar Sesion
+                </a>
+                <a id="register" [routerLink]="['/register']" *ngIf="!(currentRoute === '/register')">
+                    Registrarse
+                </a>
+            </span>
+        </ng-container>
     </nav>
 </header>

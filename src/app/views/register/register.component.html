@@ -1,35 +1,35 @@
 <section id="register">
     <h1>Ingrese sus datos para registrarse</h1>
-    <form action="">
+    <form action="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div id="inputs">
             <div id="input-container">
-                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Nombre" formControlName="name">
                 <p>Campo de error</p>
             </div>
             <div id="input-container">
-                <input type="text" placeholder="Apellido">
+                <input type="text" placeholder="Apellido" formControlName="surname">
                 <p>Campo de error</p>
             </div>
             <div id="input-container">
-                <input type="email" placeholder="Email">
+                <input type="email" placeholder="Email" formControlName="email">
                 <p>Campo de error</p>
             </div>
             <div id="input-container">
-                <input type="text" placeholder="Documento">
+                <input type="text" placeholder="Documento" formControlName="dni">
                 <p>Campo de error</p>
             </div>
             <div id="pass-condition">
                 <p>La contraseña debe ser de entre 6 carácteres a 12 carácteres, un número y un carácter especial.</p>
             </div>
             <div id="input-container">
-                <input type="password" placeholder="Contaseña">
+                <input type="password" placeholder="Contaseña" formControlName="password">
                 <p>Campo de error</p>
             </div>
             <div id="input-container">
-                <input type="password" placeholder="Repetir Contraseña">
+                <input type="password" placeholder="Repetir Contraseña" formControlName="name">
                 <p>Campo de error</p>
             </div>
         </div>
-        <button type="button">Registrarse</button>
+        <button type="submit">Registrarse</button>
     </form>
 </section>

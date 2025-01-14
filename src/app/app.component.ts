@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./components/header/header.component";
 import { HomeComponent } from "./views/home/home.component";
+import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,8 @@ import { HomeComponent } from "./views/home/home.component";
 })
 export class AppComponent {
   title = 'farmapp';
+
+  private _authService : AuthService = inject(AuthService);
+
+
 }

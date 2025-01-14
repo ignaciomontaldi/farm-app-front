@@ -5,9 +5,9 @@ import { RegisterComponent } from './views/register/register.component';
 import { ProductComponent } from './views/product/product.component';
 
 export const routes: Routes = [
-    { path: "", component: HomeComponent },
-    { path: "login", component: LoginComponent },
-    { path: "register", component: RegisterComponent},
-    { path: "product/:id", component: ProductComponent},
+    { path: "", component: HomeComponent, pathMatch: "full"},
+    { path: "login", component: LoginComponent, pathMatch: "full" },
+    { path: "register", component: RegisterComponent, pathMatch: "full"},
+    { path: "product/:id", component: ProductComponent, pathMatch: "full"},
     { path: "**", redirectTo: "" },
 ];

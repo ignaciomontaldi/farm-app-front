@@ -23,6 +23,6 @@ export class LoginComponent {
   onSubmit() {
     console.log(this.loginForm.value);
     this._localStorageService.setItem('userLogged', "true")
-    // Implementar la lógica para validar el formulario y realizar el login
+    
   }
 }

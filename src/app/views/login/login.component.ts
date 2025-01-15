@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageService } from '../../services/localStorage/local-storage.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,8 @@ import { LocalStorageService } from '../../services/localStorage/local-storage.s
 })
 export class LoginComponent {
   loginForm: FormGroup;
-
-  constructor(private _localStorageService: LocalStorageService) {
+  _authService = inject(AuthService)
+  constructor(private _localStorageService: LocalStorageService, private router : Router) {
     this.loginForm = new FormGroup({
       email: new FormControl(),
       password: new FormControl()
@@ -21,8 +22,8 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
-    this._localStorageService.setItem('userLogged', "true")
-    
+    this._authService.login(this.loginForm.value).subscribe(response => {
+      this.router.navigate(['/'])
+    })
   }
 }

@@ -1,0 +1,55 @@
+#profile {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#profile h1 {
+  text-align: center;
+  font-size: 28px;
+  padding: 30px 0 0 0;
+}
+
+#profile #user-details {
+  width: 50vw;
+  margin: 30px auto 0 auto;
+  display: grid;
+  gap: 30px;
+  justify-content: space-between;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 100px 100px;
+
+}
+
+#profile #user-details div {
+    margin: 20px 0;
+    align-content: center;
+}
+
+#profile #user-details div h2 {
+  width: 150%;
+  margin: 20px 0;
+}
+
+#profile #user-details div p {
+  width: 100%;
+  font-size: 18px;
+}
+
+#profile #user-details button {
+    width: 15vw;
+    height: 60px;
+    margin: 5rem 0 0 0;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #299E9B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#profile #user-details button:hover {
+    background-color: #1D7E7A;
+}

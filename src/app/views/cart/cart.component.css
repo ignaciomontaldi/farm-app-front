@@ -1,0 +1,52 @@
+#cart {
+    width: 100vw;
+    background: #F0F0F0;
+    padding: 20px;
+}
+
+#cart h1 {
+    text-align: center;
+    padding: 35px 0;
+}
+
+#cart #products-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#cart #paycheck-container {
+    width: 70vw;
+    height: 70px;
+    padding: 10px 20px;
+    background-color: #A8CAF6;
+    position: fixed;
+    bottom: 30px;
+    left: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+
+#cart #paycheck-container h2 {
+    font-size: 24px;
+}
+
+#cart #paycheck-container button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #299E9B;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+#cart #paycheck-container button:hover {
+    background-color: #1D7E7A;
+}

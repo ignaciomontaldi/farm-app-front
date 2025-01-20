@@ -1,12 +1,16 @@
+body {
+    overflow-y: hidden;
+}
+
 #cart {
     width: 100vw;
+    overflow-y: scroll;
     background: #F0F0F0;
     padding: 20px;
 }
 
 #cart #empty-cart {
     width: 100%;
-    height: 100vh;
     text-align: center;
 }
 
@@ -45,6 +49,7 @@
     justify-content: space-between;
     border: 1px solid #333333;
     border-radius: 5px;
+    z-index: 10;
 }
 
 #cart #paycheck-container h2 {

@@ -4,6 +4,8 @@ import { CartProductComponent } from "../../components/cart-product/cart-product
 import { ProductService } from '../../services/product/product.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { LocalStorageService } from '../../services/localStorage/local-storage.service';
+import { ProductCart } from '../../../types';
 
 @Component({
   selector: 'app-cart',
@@ -14,9 +16,15 @@ import { RouterLink } from '@angular/router';
 export class CartComponent implements OnInit {
 
   private _productService: ProductService = inject(ProductService)
-  userCart = this._productService.cart;
+  userCart? : ProductCart[];
+  totalPrice : number = 0;
+
   ngOnInit(): void {
     this._productService.initializeCart();
+    this.userCart = this._productService.getCart();
+    this.userCart.forEach(product => {
+      this.totalPrice += product.price * product.quantity;
+    });
   }
 
 }

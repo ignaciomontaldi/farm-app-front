@@ -1,11 +1,13 @@
 <div id="card-product">
-    <div [routerLink]="['/product', 1]">
+    <div [routerLink]="['/product', product.id]">
         <picture>
-            <img src="/prueba.jpg" alt="imagen-prueba">
+            <img src={{product.image}} alt={{product.title}} width="300" height="200">
         </picture>
-        <h2>Lorem Ipsum</h2>
-        <p>Disponible</p>
-        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores pariatur iure rerum facere illo explicabo suscipit autem sit! Illum neque velit corrupti commodi ullam sint, et voluptatem illo temporibus.</h3>
+        <h2>{{product.title}}</h2>
+        <h3>Precio: ${{product.price | currency}}</h3>
+        <p [ngClass]="{ 'available' : product.rating.count > 0 }" *ngIf="product.rating.count > 0">Disponible</p>
+        <p [ngClass]="{'not-available': product.rating.count === 0}" *ngIf="product.rating.count === 0">Agotado</p>
+        <h3>{{product.description}}</h3>
     </div>
-    <button>Agregar</button>
+    <button (click)="addProduct(product)">Agregar</button>
 </div>

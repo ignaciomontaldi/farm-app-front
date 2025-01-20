@@ -3,17 +3,9 @@
         <app-search-bar/>
     </div>
     <div id="cards-container">
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
-        <app-card-product/>
+        <ng-container *ngFor="let item of productList">
+            <app-card-product [product]="item"/>
+        </ng-container>
 
     </div>
 </section>

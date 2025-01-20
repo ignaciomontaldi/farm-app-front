@@ -1,13 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SideBarComponent } from "../../components/side-bar/side-bar.component";
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { Product } from '../../../types';
+import { HttpClient } from '@angular/common/http';
+import { FAKE_API_URL } from '../../constants/apiUrl';
+import { CommonModule } from '@angular/common';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-product',
-  imports: [SideBarComponent, RouterLink],
+  imports: [SideBarComponent, RouterLink, CommonModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
+  private router : Router = inject(Router);
+  private http : HttpClient = inject(HttpClient);
+  private _productService : ProductService = inject(ProductService);
+  product?:Product;
 
+  constructor() { }
+
+  ngOnInit(): void {
+    const productId = parseInt(this.router.url.split('/')[2]);
+    this.http.get<Product>(`${FAKE_API_URL}/${productId}`).subscribe(product => {
+      this.product = product;
+    })
+  }
+
+  addProduct(product?:Product) {
+    if(product){
+      this._productService.addToCart(product);
+    }
+  }
 }

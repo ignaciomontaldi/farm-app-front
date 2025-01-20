@@ -8,18 +8,13 @@
     <ng-container *ngIf="userCart && userCart.length > 0">
         <h1>Tu lista de compra</h1>
         <div id="products-list">
-            <app-cart-product/>
-            <app-cart-product/>
-            <app-cart-product/>
-            <app-cart-product/>
-            <app-cart-product/>
-            <app-cart-product/>
-            <app-cart-product/>
-            <app-cart-product/>
+            <ng-container *ngFor="let item of userCart">
+                <app-cart-product [product]="item"/>
+            </ng-container>
         </div>
         <div id="paycheck-container">
             <h2>Total a pagar:</h2>
-            <h2>$12356.23</h2>
+            <h2>{{totalPrice | currency}}</h2>
             <button type="button">Realizar la compra</button>
         </div>
     </ng-container>

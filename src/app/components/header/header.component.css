@@ -63,6 +63,8 @@ header #title-container {
 }
 
 header h1{
+    width: max-content;
+    padding: 0 10px;
     text-align: left;
     font-size: 32px;
     font-weight: bold;

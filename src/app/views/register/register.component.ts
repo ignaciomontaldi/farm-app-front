@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { checkEmail, checkName, checkPassword, checkValidNumber, isEmailRepeated } from '../../../utils/registerValidations';
-import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../../types/user.types';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user/user.service';
+import { AuthService } from '../../services/auth/auth.service';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule],
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit{
   registerForm: FormGroup;
   usersList: User[] = [];
 
-  constructor(private _authService: AuthService, private router:Router) {
+  constructor(private _authService: AuthService, private router:Router, private _userService: UserService) {
     this.registerForm = new FormGroup({
       name: new FormControl(),
       surname: new FormControl(),
@@ -26,8 +27,8 @@ export class RegisterComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this._authService.loadUsers().subscribe();
-    this._authService.getUsersList().subscribe((users: User[]) => {
+    this._userService.loadUsers().subscribe();
+    this._userService.getUsersList().subscribe((users: User[]) => {
       this.usersList = users;
     });
   }

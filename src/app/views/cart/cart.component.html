@@ -1,18 +1,26 @@
 <main id="cart">
-    <h1>Tu lista de compra</h1>
-    <div id="products-list">
-        <app-cart-product/>
-        <app-cart-product/>
-        <app-cart-product/>
-        <app-cart-product/>
-        <app-cart-product/>
-        <app-cart-product/>
-        <app-cart-product/>
-        <app-cart-product/>
-    </div>
-    <div id="paycheck-container">
-        <h2>Total a pagar:</h2>
-        <h2>$12356.23</h2>
-        <button type="button">Realizar la compra</button>
-    </div>
+    <ng-container *ngIf="(userCart && userCart.length === 0)">
+        <div id="empty-cart">
+            <h1>No has agregado ningún elemento a tu carrito</h1>
+            <a [routerLink]="['/']">Haz click aquí para volver al listado de productos</a>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="userCart && userCart.length > 0">
+        <h1>Tu lista de compra</h1>
+        <div id="products-list">
+            <app-cart-product/>
+            <app-cart-product/>
+            <app-cart-product/>
+            <app-cart-product/>
+            <app-cart-product/>
+            <app-cart-product/>
+            <app-cart-product/>
+            <app-cart-product/>
+        </div>
+        <div id="paycheck-container">
+            <h2>Total a pagar:</h2>
+            <h2>$12356.23</h2>
+            <button type="button">Realizar la compra</button>
+        </div>
+    </ng-container>
 </main>

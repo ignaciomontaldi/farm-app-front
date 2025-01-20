@@ -1,10 +1,21 @@
 {
-    "users": [{
-        "id": 0,
-        "name": "John",
-        "surname": "Doe",
-        "email": "john.doe@example.com",
-        "dni": 67543678,
-        "password": "hello-World123"
-    }]
+  "users": [
+    {
+      "id": "0",
+      "name": "John",
+      "surname": "Doe",
+      "email": "john.doe@example.com",
+      "dni": 67543678,
+      "password": "hello-World123"
+    },
+    {
+      "id": "90d1",
+      "name": "Ignacio",
+      "surname": "Montaldi",
+      "email": "ignacio@ignacio.com",
+      "dni": "78945123",
+      "password": "Montaldi-98",
+      "confirmPassword": "Montaldi-98"
+    }
+  ]
 }

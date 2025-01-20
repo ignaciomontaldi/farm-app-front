@@ -3,16 +3,16 @@
   <article id="user-details">
     <div>
       <h2>Nombre y Apellido</h2>
-      <p>Jhon Doe</p>
+      <p>{{user?.name}} {{user?.surname}}</p>
     </div>
     <div>
       <h2>Documento</h2>
-      <p>12345678</p>
+      <p>{{user?.dni}}</p>
     </div>
     <div>
       <h2>Email</h2>
-      <p>jhon.doe&#64;example.com</p>
+      <p>{{user?.email}}</p>
     </div>
-    <button type="button">Cerrar Sesión</button>
+    <button type="buttom" (click)="logout()">Cerrar Sesión</button>
   </article>
 </main>

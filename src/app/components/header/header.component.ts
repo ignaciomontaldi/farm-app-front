@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators'
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-header',
@@ -14,14 +15,19 @@ import { filter } from 'rxjs/operators'
 export class HeaderComponent implements OnInit {
 
   userLogged? : boolean;
+  cartLength? : number;
   currentRoute: string = "";
 
-  constructor(private _authService: AuthService, private router : Router) {
+  constructor(private _authService: AuthService, private router : Router, private _productService: ProductService) {
     
   }
   
   ngOnInit(): void {
     this._authService.updateUserData();
+    this._productService.initializeCart();
+    this._productService.cartItemCount$.subscribe(count => {
+      this.cartLength = count;
+    })
     this._authService.userLogged$.subscribe(isLoggedIn => {
       this.userLogged = isLoggedIn;
     });
@@ -32,7 +38,13 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+
+
   updateUserData() {
     this._authService.updateUserData();
+  }
+
+  updateItemCount() {
+    this.cartLength = this._productService.getCartItemCount();
   }
 }

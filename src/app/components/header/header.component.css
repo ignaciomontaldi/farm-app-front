@@ -78,6 +78,7 @@ header h1:hover {
 header nav #links-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 header nav #links-container a {
@@ -109,6 +110,47 @@ header nav #links-container #register {
     font-style: normal;
     line-height: 27px;
     font-weight: 600;
+}
+
+header nav #links-container #profile-link {
+    color: black;
+    width: max-content;
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+header nav #links-container #profile-link:hover {
+    text-decoration: underline;
+}
+
+header nav #links-container #cart-icon-container {
+    position: relative;
+    padding: 10px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+header nav #links-container #cart-icon-container img:hover {
+    cursor: pointer;
+}
+
+header nav #links-container #cart-icon-container #cart-items {
+    position: absolute;
+    padding: 4px;
+    min-width: 25px;
+    min-height: 20px;
+    text-align: center;
+    left: 30px;
+    top: 0px;
+    color:white;
+    background: #FF8787;
+    border-radius: 100px;
+}
+
+header nav #links-container #cart-icon-container #cart-items {
+    font-size: 16px;
 }
 
 

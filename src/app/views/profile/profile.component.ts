@@ -2,8 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { User } from '../../../types/user.types';
 import { UserService } from '../../services/user/user.service';
 import { LocalStorageService } from '../../services/localStorage/local-storage.service';
-import { map } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,8 +12,9 @@ import { Router } from '@angular/router';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit {
-  private _userService: UserService = inject(UserService)
   private router: Router = inject(Router);
+  private _userService: UserService = inject(UserService)
+  private _authService: AuthService = inject(AuthService)
   private _localStorageService: LocalStorageService = inject(LocalStorageService);
   user?:User;
 
@@ -30,6 +31,7 @@ export class ProfileComponent implements OnInit {
   logout() {
     this._localStorageService.removeItem('userId');
     this._localStorageService.removeItem('userLogged');
+    this._authService.updateUserData();
     this.router.navigate(['/login'])
   }
 

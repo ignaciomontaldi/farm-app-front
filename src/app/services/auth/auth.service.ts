@@ -1,21 +1,28 @@
-import { inject, Injectable, OnInit } from '@angular/core';
-import { API_URL } from '../../constants/apiUrl';
-import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, map } from 'rxjs';
 import { LocalStorageService } from '../localStorage/local-storage.service';
-import { User } from '../../../types/user.types';
-import { LoginFormData, RegisterFormData } from '../../../types/forms.types';
+import { LoginFormData, RegisterFormData, User } from '../../../types';
+import { API_URL } from '../../constants/apiUrl';
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   
-  private http = inject(HttpClient)
-  private userIsLogged: any = 'false';
+  private http = inject(HttpClient);
+  private _localStorageService : LocalStorageService = inject(LocalStorageService);
+  private userLoggedSubject = new BehaviorSubject<boolean>(false);
+  userLogged$ = this.userLoggedSubject.asObservable();
   private userEndpoint: string = 'users';
 
-  constructor(private _localStorageService: LocalStorageService) {
-    
+  constructor() {
+    this.updateUserData(); // Inicializa el estado de autenticación al crear el servicio
+  }
+
+  updateUserData() {
+    const isLoggedIn = this.isLoggedIn();
+    this.userLoggedSubject.next(isLoggedIn);
   }
 
 

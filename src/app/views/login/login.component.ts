@@ -23,6 +23,7 @@ export class LoginComponent {
 
   onSubmit() {
     this._authService.login(this.loginForm.value).subscribe(response => {
+      this._authService.updateUserData()
       this.router.navigate(['/'])
     })
   }

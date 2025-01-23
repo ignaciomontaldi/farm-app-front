@@ -21,11 +21,18 @@ export class HeaderComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.userLogged = this._authService.isLoggedIn() || false;
+    this._authService.updateUserData();
+    this._authService.userLogged$.subscribe(isLoggedIn => {
+      this.userLogged = isLoggedIn;
+    });
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.currentRoute = event.urlAfterRedirects;
     });
+  }
+
+  updateUserData() {
+    this._authService.updateUserData();
   }
 }

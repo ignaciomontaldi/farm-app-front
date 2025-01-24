@@ -16,6 +16,15 @@
       "dni": "78945123",
       "password": "Montaldi-98",
       "confirmPassword": "Montaldi-98"
+    },
+    {
+      "id": "6580",
+      "name": "Francisco",
+      "surname": "Klondie",
+      "email": "fran@fran.com",
+      "dni": "78945623",
+      "password": "Francisco-98",
+      "confirmPassword": "Francisco-98"
     }
   ]
 }

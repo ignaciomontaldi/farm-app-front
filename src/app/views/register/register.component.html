@@ -30,6 +30,7 @@
                 <p>Campo de error</p>
             </div>
         </div>
-        <button type="submit">Registrarse</button>
+        <button type="submit" id="register" *ngIf="!loading">Registrarse</button>
+        <button id="loading-btn" type="button" disabled *ngIf="loading">Registrando...</button> 
     </form>
 </section>

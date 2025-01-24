@@ -5,7 +5,8 @@ import { Product } from '../../../types';
 import { HttpClient } from '@angular/common/http';
 import { FAKE_API_URL } from '../../constants/apiUrl';
 import { CardProductComponent } from '../../components/card-product/card-product.component';
-import { SideBarComponent } from "../../components/side-bar/side-bar.component";
+import { SideBarComponent } from '../../components/side-bar/side-bar.component';
+import { LoaderService } from '../../services/loader/loader.service';
 
 @Component({
   selector: 'app-categories',
@@ -14,28 +15,31 @@ import { SideBarComponent } from "../../components/side-bar/side-bar.component";
   styleUrl: './categories.component.css',
 })
 export class CategoriesComponent implements OnInit {
-  private http : HttpClient = inject(HttpClient);
+  private http: HttpClient = inject(HttpClient);
   private router: Router = inject(Router);
-  private route : ActivatedRoute = inject(ActivatedRoute);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  private _loaderService: LoaderService = inject(LoaderService);
+
   productsByCategory?: any[];
-  routeParams: string|null = '';
+  routeParams: string | null = '';
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.routeParams = params.get('category')
-      this.updateProductsByCategory();
-    })
-    }
-    updateProductsByCategory(): void {
-      if (this.routeParams) {
-        this.http
-          .get<Product[]>(`${FAKE_API_URL}/category/${this.routeParams}`)
-          .subscribe(products => {
-            this.productsByCategory = products;
-          });
-      } else {
-        this.productsByCategory = []; // Manejo en caso de que no haya categoría
-      }
+    this.route.paramMap.subscribe((params) => {
+        this._loaderService.showLoader();
+        this.routeParams = params.get('category');
+        this.updateProductsByCategory();
+        this._loaderService.hideLoader();
+    });
+  }
+  updateProductsByCategory(): void {
+    if (this.routeParams) {
+      this.http
+        .get<Product[]>(`${FAKE_API_URL}/category/${this.routeParams}`)
+        .subscribe((products) => {
+          this.productsByCategory = products;
+        });
+    } else {
+      this.productsByCategory = []; // Manejo en caso de que no haya categoría
     }
   }
-
+}

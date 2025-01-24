@@ -4,17 +4,25 @@ import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageService } from '../../services/localStorage/local-storage.service';
 import { AuthService } from '../../services/auth/auth.service';
+import { LoaderService } from '../../services/loader/loader.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterModule, ReactiveFormsModule],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
+
+  private _authService = inject(AuthService)
+  private router : Router = inject(Router);
+
   loginForm: FormGroup;
-  _authService = inject(AuthService)
-  constructor(private _localStorageService: LocalStorageService, private router : Router) {
+  loading: boolean = false;
+
+  constructor() {
     this.loginForm = new FormGroup({
       email: new FormControl(),
       password: new FormControl()
@@ -22,9 +30,13 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this._authService.login(this.loginForm.value).subscribe(response => {
-      this._authService.updateUserData()
-      this.router.navigate(['/'])
-    })
+    this.loading = true;
+    setTimeout(() => {
+      this._authService.login(this.loginForm.value).subscribe(response => {
+        this._authService.updateUserData()
+        this.router.navigate(['/'])
+      })
+      this.loading = false;
+    }, 3000)
   }
 }

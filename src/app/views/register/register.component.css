@@ -1,6 +1,6 @@
 #register {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     padding: 20px;
     background-color: #F0F0F0;
 }
@@ -51,15 +51,24 @@
     display: block;
     margin: 50px auto;
     width: 20vw;
+    height: 60px;
     text-align: center;
     padding: 20px;
     font-size: 20px;
     font-weight: 600;
-    background-color: #299E9B;
     color: #FFFFFF;
     border: none;
     border-radius: 5px;
+}
+
+#register form #register {
+    background-color: #299E9B;
     cursor: pointer;
+}
+
+#register form #loading-btn {
+    background-color: #134b4a;
+    cursor: not-allowed;
 }
 
 #register form button:hover {

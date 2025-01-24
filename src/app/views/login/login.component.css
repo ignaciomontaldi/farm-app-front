@@ -1,6 +1,6 @@
 #login {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     margin: auto;
     display: flex;
     text-align: center;
@@ -27,10 +27,13 @@
     border-radius: 10px;
 }
 
-#login form a {
-    margin: 30px 0;
-    color: black;
+#login form #forgot-password {
+    font-size: 16px;
     text-align: left;
+    margin: 20px 0;
+    border: none;
+    color: black;
+    cursor: pointer;
 }
 
 #login form #btn-container {
@@ -39,30 +42,32 @@
     align-items: center;
 }
 
-#login form #btn-container button, #login form #btn-container a{
+#login form #btn-container #login-btn {
     width: 15vw;
+    height: 60px;
     max-width: 330px;
-    padding: 15px 20px;
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 600;
     margin: 20px 0;
+    background-color: #299E9B;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
     border: none;
     border-radius: 10px;
-    color: white;
     cursor: pointer;
 }
 
-#login form #btn-container button:hover, #login form #btn-container a:hover {
-    text-decoration: underline;
-    opacity: 0.8;
-}
-
-#login form #btn-container #login-btn {
-    background-color: #299E9B;
-}
-
-#login form #btn-container #create-acc-btn {
-    background-color: #333333;
+#login form #loading-btn button {
+    width: 15vw;
+    height: 60px;
+    max-width: 330px;
+    margin: 20px 0;
+    background-color: #134b4a;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: not-allowed;
 }

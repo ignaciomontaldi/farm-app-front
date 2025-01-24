@@ -3,9 +3,12 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <input type="email" placeholder="Email" formControlName="email">
         <input type="password" placeholder="Contraseña" formControlName="password">
-        <a href="#">¿Olvidaste tu contraseña?</a>
-        <div id="btn-container">
+        <a href="#" id="forgot-password">¿Olvidaste tu contraseña?</a>
+        <div id="btn-container" *ngIf="!loading">
             <button type="submit" id="login-btn">Ingresar</button>     
+        </div>
+        <div id="loading-btn" *ngIf="loading === true">
+            <button type="button" disabled>Ingresando...</button> 
         </div>
     </form>
 </section>

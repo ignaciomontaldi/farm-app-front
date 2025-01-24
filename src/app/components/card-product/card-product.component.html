@@ -4,7 +4,7 @@
             <img src={{product.image}} alt={{product.title}} width="300" height="200">
         </picture>
         <h2>{{product.title}}</h2>
-        <h3>Precio: ${{product.price | currency}}</h3>
+        <h3>Precio: {{product.price | currency}}</h3>
         <p [ngClass]="{ 'available' : product.rating.count > 0 }" *ngIf="product.rating.count > 0">Disponible</p>
         <p [ngClass]="{'not-available': product.rating.count === 0}" *ngIf="product.rating.count === 0">Agotado</p>
         <h3>{{product.description}}</h3>

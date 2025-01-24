@@ -15,9 +15,11 @@ export class ProductService {
   private productSubject = new BehaviorSubject<Product[]>([])
   private productCategorySubject = new BehaviorSubject<string[]>([]);
   private cartItemCountSubject = new BehaviorSubject<number>(0);
+  private productByCategorySubject = new BehaviorSubject<Product[]>([]);
   cartLength? : number = 0;
   product$ = this.productSubject.asObservable();
   productCategory$ = this.productCategorySubject.asObservable();
+  productByCategory$ = this.productByCategorySubject.asObservable();
   cartItemCount$ = this.cartItemCountSubject.asObservable();
   cart:ProductCart[] = [];
   
@@ -64,8 +66,6 @@ export class ProductService {
       })
     ).subscribe()
   }
-
-
 
   initializeCart() {
     const cart = this._localStorageService.getItem('cart')

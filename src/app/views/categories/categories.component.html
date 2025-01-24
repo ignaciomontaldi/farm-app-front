@@ -1,1 +1,18 @@
-<p>categories works!</p>
+<main id="category-products">
+    <app-side-bar/>
+    <section>
+        <ng-container *ngIf="productsByCategory && productsByCategory.length > 0">
+            <div id="category-title">
+                <h1>Lista de productos de {{routeParams}}</h1>
+            </div>
+            <div id="products-list">
+                <ng-container *ngFor="let product of productsByCategory">
+                    <app-card-product [product]="product"/>
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!productsByCategory || productsByCategory.length <= 0">
+            <p>No hay productos en esta categoría.</p>
+        </ng-container>
+    </section>
+</main>

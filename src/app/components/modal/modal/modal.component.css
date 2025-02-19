@@ -1,0 +1,38 @@
+#modal-container {
+    position: fixed;
+    z-index: 10;
+    bottom: 2%;
+    left: 20px;
+    width: 350px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#modal-container svg {
+    margin-left: 20px;
+}
+
+.success {
+    border: 2px solid #a4ff7c;
+    background-color: #e0ffd3;
+}
+
+
+.error {
+    border: 2px solid #ff6c6c;
+    background-color: #ffeaea;
+}
+
+.warning {
+    border: 2px solid #b6bc60;
+    background-color: #feffed;
+}
+
+#modal-container p {
+    font-size: 16px;
+    margin-left: 20px;
+    color: black;
+    font-weight: 500;
+}

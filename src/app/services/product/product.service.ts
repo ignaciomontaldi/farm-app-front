@@ -22,6 +22,8 @@ export class ProductService {
   productByCategory$ = this.productByCategorySubject.asObservable();
   cartItemCount$ = this.cartItemCountSubject.asObservable();
   cart:ProductCart[] = [];
+  cartSubject = new BehaviorSubject<ProductCart[]>(this.cart)
+  cart$ = this.cartSubject.asObservable();
   
   constructor() { }
 
@@ -74,6 +76,7 @@ export class ProductService {
     } else {
       this.cart = JSON.parse(cart);
     }
+    this.refreshCart()
   }
 
   saveCart(cart:Product[]):void {
@@ -93,7 +96,6 @@ export class ProductService {
 
   removeFromCart(productId: number):void {
     const product = this.cart.find(product => product.id === productId);
-
     if(product) {
       if(product.quantity > 1) {
         product.quantity -= 1;
@@ -102,6 +104,7 @@ export class ProductService {
       }
       this.saveCart(this.cart);
       this.updateCartItemCount();
+      this.refreshCart();
     }
   }
 
@@ -110,4 +113,10 @@ export class ProductService {
     this.cartItemCountSubject.next(itemCount);
   }
 
+  refreshCart() {
+    this.cartSubject.next([...this.cart])
+  }
+
 }
+
+

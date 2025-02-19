@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { FAKE_API_URL } from '../../constants/apiUrl';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product/product.service';
+import { LoaderService } from '../../services/loader/loader.service';
 
 @Component({
   selector: 'app-product',
@@ -17,15 +18,18 @@ export class ProductComponent implements OnInit {
   private router : Router = inject(Router);
   private http : HttpClient = inject(HttpClient);
   private _productService : ProductService = inject(ProductService);
+  private _loaderService : LoaderService = inject(LoaderService);
   product?:Product;
 
   constructor() { }
 
   ngOnInit(): void {
     const productId = parseInt(this.router.url.split('/')[2]);
+    this._loaderService.showLoader();
     this.http.get<Product>(`${FAKE_API_URL}/${productId}`).subscribe(product => {
       this.product = product;
     })
+    this._loaderService.hideLoader();
   }
 
   addProduct(product?:Product) {

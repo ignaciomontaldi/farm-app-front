@@ -1,0 +1,15 @@
+<ng-container *ngIf="isOpen$ | async">
+  <div
+  id="modal-container"
+  [ngClass]="{
+    'success': (type$ | async) === 'success',
+    'error': (type$ | async) === 'error',
+    'warning': (type$ | async) === 'warning'
+  }"
+>
+  <fa-icon *ngIf="(type$ | async) === 'success'" [icon]="faCheck" class="fa-lg" style="margin-left: 20px; color: #299E9B"/>
+  <fa-icon *ngIf="(type$ | async) === 'warning'" [icon]="faExclamation" class="fa-lg" style="margin-left: 20px; color: orange"/>
+  <fa-icon *ngIf="(type$ | async) === 'error'" [icon]="faCross" class="fa-lg" style="margin-left: 20px; color: red"/>
+  <p>{{message$ | async}}</p>
+</div>
+</ng-container>

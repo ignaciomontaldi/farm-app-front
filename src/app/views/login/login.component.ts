@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.component.css'
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   private _authService = inject(AuthService)
   private router : Router = inject(Router);
@@ -27,6 +27,13 @@ export class LoginComponent {
       email: new FormControl(),
       password: new FormControl()
     });
+  }
+
+  ngOnInit(): void {
+    if(this._authService.isLoggedIn()) {
+      this.router.navigate(['/']);
+      return;
+    }
   }
 
   onSubmit() {

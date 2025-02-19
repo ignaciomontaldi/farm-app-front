@@ -4,6 +4,7 @@ body {
 
 #cart {
     width: 100vw;
+    height: 90vh;
     overflow-y: scroll;
     background: #F0F0F0;
     padding: 20px;
@@ -29,22 +30,25 @@ body {
 }
 
 #cart #products-list{
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
 }
 
 #cart #paycheck-container {
-    width: 70vw;
-    height: 70px;
+    width: 20vw;
+    height: 200px;
     padding: 10px 20px;
     background-color: #A8CAF6;
     position: fixed;
-    bottom: 30px;
-    left: 12%;
+    top: 25%;
+    right: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     border: 1px solid #333333;

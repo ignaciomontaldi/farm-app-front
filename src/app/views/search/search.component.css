@@ -1,0 +1,41 @@
+#search-result-main {
+    width: 100%;
+    background: #F0F0F0;
+    overflow-y: hidden;
+}
+
+#search-result-main #search-section {
+    width: 80vw;
+    height: 90vh;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 20vw;
+}
+
+#search-result-main #search-section #search-bar-container {
+    width: max-content;
+    margin: 0 auto;
+}
+
+#search-result-main #search-section #search-fail-result h1 {
+    text-align: center;
+    margin: 5rem auto 0 auto;
+}
+
+#search-result-main #search-section #search-results h2 {
+    margin: 2rem;
+    text-align: center;
+}
+
+#search-result-main #search-section #search-results #product-list {
+    width: 80vw;
+    margin: 0 auto;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}

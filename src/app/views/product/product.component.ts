@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { SideBarComponent } from "../../components/side-bar/side-bar.component";
 import { Router, RouterLink } from '@angular/router';
 import { Product } from '../../../types';
@@ -15,6 +15,7 @@ import { LoaderService } from '../../services/loader/loader.service';
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit {
+  @Input() product2?: Product;
   private router : Router = inject(Router);
   private http : HttpClient = inject(HttpClient);
   private _productService : ProductService = inject(ProductService);
@@ -24,13 +25,17 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const productId = parseInt(this.router.url.split('/')[2]);
     this._loaderService.showLoader();
-    this.http.get<Product>(`${FAKE_API_URL}/${productId}`).subscribe(product => {
-      this.product = product;
-    })
+    if(this.product2){
+      this.product = this.product2;
+    } else {
+      const productId = parseInt(this.router.url.split('/')[2]);
+      this.http.get<Product>(`${FAKE_API_URL}/${productId}`).subscribe(product => {
+        this.product = product;
+      })
+    }
     this._loaderService.hideLoader();
-  }
+    }
 
   addProduct(product?:Product) {
     if(product){

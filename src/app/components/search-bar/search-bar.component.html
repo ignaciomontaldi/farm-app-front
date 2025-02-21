@@ -1,6 +1,6 @@
 <span>
-    <form id="search-bar">
-        <input type="search" placeholder="Buscar medicamento">
+    <form id="search-bar" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+        <input type="search" placeholder="Buscar medicamento" formControlName="searchTerm">
         <button type="submit">Buscar</button>
       </form>  
 </span>

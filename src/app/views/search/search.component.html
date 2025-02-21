@@ -1,0 +1,23 @@
+<main id="search-result-main">
+  <app-side-bar />
+  <section id="search-section">
+    <div id="search-bar-container">
+      <app-search-bar />
+    </div>
+    <ng-container *ngIf="filteredProducts.length <= 0">
+      <div id="search-fail-result">
+        <h1 >No se encontro ningún producto con ese nombre</h1>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="filteredProducts.length > 0">
+      <div id="search-results">
+        <h2>Resultados de la busqueda</h2>
+        <div id="product-list">
+          <ng-container *ngFor="let product of filteredProducts">
+              <app-card-product [product]="product"/>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </section>
+</main>

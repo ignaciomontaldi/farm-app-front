@@ -7,6 +7,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { CartComponent } from './views/cart/cart.component';
 import { CategoriesComponent } from './views/categories/categories.component';
 import { AuthGuard } from './guards/auth/auth.guard';
+import { SearchComponent } from './views/search/search.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -20,5 +21,6 @@ export const routes: Routes = [
     component: CategoriesComponent,
     pathMatch: 'full',
   },
+  { path: 'search', component: SearchComponent},
   { path: '**', redirectTo: '' },
 ];

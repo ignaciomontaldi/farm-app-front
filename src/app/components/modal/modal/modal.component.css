@@ -1,13 +1,14 @@
 #modal-container {
     position: fixed;
-    z-index: 10;
     bottom: 2%;
     left: 20px;
+    z-index: 10;
     width: 350px;
     padding: 10px 0;
     display: flex;
     align-items: center;
     border-radius: 5px;
+    animation: modal 0.4s ease-out forwards;
 }
 
 #modal-container svg {
@@ -35,4 +36,15 @@
     margin-left: 20px;
     color: black;
     font-weight: 500;
+}
+
+@keyframes modal {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }

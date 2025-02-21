@@ -1,11 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { HeaderComponent } from "../../components/header/header.component";
 import { Router, RouterModule } from '@angular/router';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { LocalStorageService } from '../../services/localStorage/local-storage.service';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
-import { LoaderService } from '../../services/loader/loader.service';
 import { CommonModule } from '@angular/common';
+import { ModalService } from '../../services/modal/modal.service';
 
 @Component({
   selector: 'app-login',
@@ -16,17 +14,19 @@ import { CommonModule } from '@angular/common';
 
 export class LoginComponent implements OnInit {
 
-  private _authService = inject(AuthService)
+  private _authService : AuthService = inject(AuthService);
+  private _modalService : ModalService = inject(ModalService);
   private router : Router = inject(Router);
+  private form : FormBuilder = inject(FormBuilder);
 
   loginForm: FormGroup;
   loading: boolean = false;
 
   constructor() {
-    this.loginForm = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    });
+    this.loginForm = this.form.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    })
   }
 
   ngOnInit(): void {
@@ -36,14 +36,37 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  hasErrors(controlName : string , errorType : string) {
+    return this.loginForm.get(controlName)?.hasError(errorType) && this.loginForm.get(controlName)?.touched;
+  }
+
   onSubmit() {
     this.loading = true;
-    setTimeout(() => {
+    if(this.loginForm.invalid) {
+      this.loading = false;
+      this.loginForm.markAllAsTouched();
+      this._modalService.openModal('error', 'Revisar los campos');
+      this._modalService.hideModal();
+    } else {
+      this._authService.login(this.loginForm.value).subscribe(response => {
+        this._authService.updateUserData()
+        this.router.navigate(['/'])
+        this.loading = false;
+      }, (error) => {
+        this._modalService.openModal('error', error);
+        this._modalService.hideModal();
+        this.loading = false;
+      })
+    }
+  }
+}
+
+/*
+ setTimeout(() => {
       this._authService.login(this.loginForm.value).subscribe(response => {
         this._authService.updateUserData()
         this.router.navigate(['/'])
       })
       this.loading = false;
     }, 3000)
-  }
-}
+*/

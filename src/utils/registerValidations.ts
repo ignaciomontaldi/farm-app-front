@@ -37,11 +37,15 @@ export function checkEmail(email: string):boolean {
 }
 
 export function isEmailRepeated(email:string, usersList : User[]) : boolean {
-    let b = 0
+    let b = 0 // 0 no esta repetido --- 1 está repetido
     usersList.forEach(user => {
         if(user.email === email) {
           b=1
         }
       })
-    return b === 1; // 0 no esta repetido --- 1 está repetido
+    if(b === 0) { 
+        return false 
+    } else {
+        return true;
+    }
 }

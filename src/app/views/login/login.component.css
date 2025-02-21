@@ -18,6 +18,16 @@
     flex-direction: column;
 }
 
+#login form p {
+    display: none;
+}
+
+#login form .error-msg {
+    display: block;
+    text-align: left;
+    color: #FF8787;
+}
+
 #login form input {
     width: 30vw;
     padding: 10px;
@@ -25,6 +35,10 @@
     margin: 20px 0;
     border: 2px solid #A8CAF6;
     border-radius: 10px;
+}
+
+#login form .input-error {
+    border: 2px solid #FF8787;
 }
 
 #login form #forgot-password {

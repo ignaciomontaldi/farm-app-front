@@ -1,8 +1,11 @@
 <section id="login">
     <h1>Ingresa tus datos</h1>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input type="email" placeholder="Email" formControlName="email">
-        <input type="password" placeholder="Contraseña" formControlName="password">
+        <input type="email" placeholder="Email" formControlName="email" [ngClass]="{'input-error': hasErrors('email', 'required') || hasErrors('email', 'email')}">
+        <p [ngClass]="{'error-msg': hasErrors('email', 'required')}">Campo obligatorio</p>
+        <p [ngClass]="{'error-msg': hasErrors('email', 'email')}">Email no inválido</p>
+        <input type="password" placeholder="Contraseña" formControlName="password" [ngClass]="{'input-error': hasErrors('password', 'required')}">
+        <p [ngClass]="{'error-msg': hasErrors('password', 'required')}">Campo obligatorio</p>
         <a href="#" id="forgot-password">¿Olvidaste tu contraseña?</a>
         <div id="btn-container" *ngIf="!loading">
             <button type="submit" id="login-btn">Ingresar</button>     

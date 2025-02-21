@@ -3,31 +3,38 @@
     <form action="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div id="inputs">
             <div id="input-container">
-                <input type="text" placeholder="Nombre" formControlName="name">
-                <p>Campo de error</p>
+                <input type="text" placeholder="Nombre" formControlName="name" [ngClass]="{'input-error': hasErrors('name', 'required')}">
+                <p [ngClass]="{'error-msg': hasErrors('name', 'required')}">Campo obligatorio</p>
             </div>
             <div id="input-container">
-                <input type="text" placeholder="Apellido" formControlName="surname">
-                <p>Campo de error</p>
+                <input type="text" placeholder="Apellido" formControlName="surname" [ngClass]="{'input-error': hasErrors('surname', 'required')}">
+                <p [ngClass]="{'error-msg': hasErrors('surname', 'required')}">Campo obligatorio</p>
             </div>
             <div id="input-container">
-                <input type="email" placeholder="Email" formControlName="email">
-                <p>Campo de error</p>
+                <input type="email" placeholder="Email" formControlName="email" [ngClass]="{'input-error': hasErrors('email', 'required') || hasErrors('email', 'email')}">
+                <p [ngClass]="{'error-msg': hasErrors('email', 'required')}">Campo obligatorio</p>
+                <p [ngClass]="{'error-msg': hasErrors('email', 'email')}">Email inválido</p>
             </div>
             <div id="input-container">
-                <input type="text" placeholder="Documento" formControlName="dni">
-                <p>Campo de error</p>
+                <input type="text" placeholder="Documento" formControlName="dni" [ngClass]="{'input-error': hasErrors('dni', 'required') || hasErrors('dni', 'minlength') || hasErrors('dni', 'maxlength')}">
+                <p [ngClass]="{'error-msg': hasErrors('dni', 'required')}">Campo obligatorio</p>
+                <p [ngClass]="{'error-msg': hasErrors('dni', 'minlength')}">El dni debe tener mínimo 6 carácteres</p>
+                <p [ngClass]="{'error-msg': hasErrors('dni', 'maxlength')}">El dni debe tener máximo 12 carácteres</p>
             </div>
             <div id="pass-condition">
                 <p>La contraseña debe ser de entre 6 carácteres a 12 carácteres, un número y un carácter especial.</p>
             </div>
             <div id="input-container">
-                <input type="password" placeholder="Contaseña" formControlName="password">
-                <p>Campo de error</p>
+                <input type="password" placeholder="Contaseña" formControlName="password" [ngClass]="{'input-error': hasErrors('password', 'required') || hasErrors('password', 'minlength') || hasErrors('password', 'maxlength')}">
+                <p [ngClass]="{'error-msg': hasErrors('password', 'required')}">Campo obligatorio</p>
+                <p [ngClass]="{'error-msg': hasErrors('password', 'minlength')}">La contraseña debe tener mínimo 6 carácteres</p>
+                <p [ngClass]="{'error-msg': hasErrors('password', 'maxlength')}">La contraseña debe tener máximo 12 carácteres</p>
             </div>
             <div id="input-container">
-                <input type="password" placeholder="Repetir Contraseña" formControlName="confirmPassword">
-                <p>Campo de error</p>
+                <input type="password" placeholder="Repetir Contraseña" formControlName="confirmPassword" [ngClass]="{'input-error': hasErrors('confirmPassword', 'required') || hasErrors('confirmPassword', 'minlength') || hasErrors('confirmPassword', 'maxlength')}">
+                <p [ngClass]="{'error-msg': hasErrors('confirmPassword', 'required')}">Campo obligatorio</p>
+                <p [ngClass]="{'error-msg': hasErrors('confirmPassword', 'minlength')}">La contraseña debe tener mínimo 6 carácteres</p>
+                <p [ngClass]="{'error-msg': hasErrors('confirmPassword', 'maxlength')}">La contraseña debe tener máximo 12 carácteres</p>
             </div>
         </div>
         <button type="submit" id="register" *ngIf="!loading">Registrarse</button>

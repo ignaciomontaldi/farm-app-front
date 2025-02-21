@@ -25,6 +25,15 @@
       "dni": "78945623",
       "password": "Francisco-98",
       "confirmPassword": "Francisco-98"
+    },
+    {
+      "id": "58c1",
+      "name": "Ignacio",
+      "surname": "Klondie",
+      "email": "ignacio@nacho.com",
+      "dni": "49632587",
+      "password": "Pinocho-0",
+      "confirmPassword": "Pinocho-0"
     }
   ]
 }

@@ -37,10 +37,18 @@
     border: 2px solid #A8CAF6;
 }
 
+#register form .input-error{
+    border: 2px solid #FF8787;
+}
+
 #register form #input-container p {
     display: none;
+}
+
+#register form #input-container .error-msg {
+    display: block;
     margin-top: 10px;
-    color: rgb(255, 114, 114);
+    color: #FF8787;
 }
 
 #register form #pass-condition p {

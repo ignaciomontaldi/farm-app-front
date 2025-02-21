@@ -11,7 +11,7 @@ import { SearchComponent } from './views/search/search.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent, pathMatch: 'full', canActivate: [AuthGuard] },
